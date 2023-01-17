@@ -6,12 +6,10 @@ import com.uncodigo.clientes.app.handler.exceptions.HandlerValidationException;
 import com.uncodigo.clientes.app.models.entity.Client;
 import com.uncodigo.clientes.app.models.services.IClientServices;
 import jakarta.validation.Valid;
-import jakarta.validation.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -73,7 +71,7 @@ public class ClientRestController {
             clientCreated = this.clientService.save(client);
         } catch (DataAccessException e) {
             logger.error("Error: ".concat(e.getMostSpecificCause().getMessage()));
-
+            // TODO: Crear excepción personalizada para el método create en el controlador de Clientes.
             response.put("ok", false);
             response.put("client", clientCreated);
             response.put("message", "The client was not created, occurred an error: ".concat(e.getMessage()));
@@ -151,6 +149,8 @@ public class ClientRestController {
         try {
             clientRemove = this.clientService.delete(id);
         } catch (DataAccessException e) {
+            logger.error("Error: Client not removed. ".concat(e.getMessage()));
+            // TODO: Crear excepción personalizada para el método create en el controlador de Clientes.
             response.put("ok", false);
             response.put("client", clientRemove);
             response.put("message", "Error: Client with ID: " + id + " it's nt removed!");
