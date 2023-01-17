@@ -1,6 +1,8 @@
 package com.uncodigo.clientes.app.models.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import org.checkerframework.common.aliasing.qual.Unique;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,15 +16,18 @@ public class Client implements Serializable {
     private Long id;
 
     @Column(name = "name")
+    @NotNull
     private String name;
 
     @Column(name = "lastname")
-    private String lastname;
+    @NotNull
+    private String lastName;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
+    @NotNull
     private String email;
 
-    @Column(name = "create_at")
+    @Column(name = "create_at", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date createAt;
 
@@ -49,12 +54,12 @@ public class Client implements Serializable {
         this.name = name;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {

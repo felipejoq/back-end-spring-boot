@@ -43,7 +43,9 @@ public class ClientServiceImpl implements IClientServices{
 
     @Override
     @Transactional
-    public void delete(Long id) {
+    public Client delete(Long id) {
+        Client client = this.findOne(id);
         this.clientDao.deleteById(id);
+        return client;
     }
 }
