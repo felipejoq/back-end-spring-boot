@@ -1,5 +1,6 @@
 package com.uncodigo.clientes.app.handler.exceptions;
 
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -7,6 +8,7 @@ import org.springframework.validation.ObjectError;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class HandlerValidationException extends RuntimeException {
 
@@ -46,12 +48,13 @@ public class HandlerValidationException extends RuntimeException {
     }
 
     public List<String> getAllErrors() {
-        List<String> errors = new ArrayList<>();
-
+        /* List<String> errors = new ArrayList<>();
         for (FieldError property : this.result.getFieldErrors()) {
             errors.add(property.getField() + " " + property.getDefaultMessage());
-        }
-
-        return errors;
+        } */
+        return this.result.getFieldErrors()
+                .stream()
+                .map(DefaultMessageSourceResolvable::getDefaultMessage)
+                .collect(Collectors.toList());
     }
 }

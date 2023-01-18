@@ -1,8 +1,11 @@
 package com.uncodigo.clientes.app.models.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import org.checkerframework.common.aliasing.qual.Unique;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -15,20 +18,25 @@ public class Client implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    @NotNull
+    @Column(name = "name", nullable = false)
+    @NotEmpty(message = "Name field is required.")
+    @Size(min = 3, max = 255, message = "Name field size must be between 3 and 255")
     private String name;
 
-    @Column(name = "lastname")
-    @NotNull
+    @Column(name = "lastname", nullable = false)
+    @NotEmpty(message = "Last name field is required.")
+    @Size(min = 3, max = 255, message = "Last name field size must be between 3 and 255")
     private String lastName;
 
-    @Column(name = "email", unique = true)
-    @NotNull
+    @Column(name = "email", unique = true, nullable = false)
+    @NotEmpty
+    @Email(message = "Check Email field, this should have the email format.")
+    @Size(max = 255)
     private String email;
 
     @Column(name = "create_at", nullable = false)
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createAt;
 
     @PrePersist
@@ -40,10 +48,6 @@ public class Client implements Serializable {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {

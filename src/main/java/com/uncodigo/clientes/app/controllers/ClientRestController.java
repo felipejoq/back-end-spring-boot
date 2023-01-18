@@ -62,22 +62,21 @@ public class ClientRestController {
 
     @PostMapping("/clients")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<?> create(@RequestBody Client client) {
+    public ResponseEntity<?> create(@RequestBody @Valid Client client, BindingResult result) {
 
-        Client clientCreated = null;
+        if(result.hasErrors()) {
+            throw new HandlerValidationException(HttpStatus.BAD_REQUEST, "Complete fields required.", result);
+        }
+
+        Client clientCreated;
         Map<String, Object> response = new HashMap<>();
 
         try {
             clientCreated = this.clientService.save(client);
         } catch (DataAccessException e) {
             logger.error("Error: ".concat(e.getMostSpecificCause().getMessage()));
-            // TODO: Crear excepción personalizada para el método create en el controlador de Clientes.
-            response.put("ok", false);
-            response.put("client", clientCreated);
-            response.put("message", "The client was not created, occurred an error: ".concat(e.getMessage()));
-            response.put("error", e.getMostSpecificCause().getMessage());
 
-            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+            throw new HandlerDataAccessException(e, HttpStatus.BAD_REQUEST, "Error");
         }
 
         response.put("ok", true);
@@ -89,7 +88,6 @@ public class ClientRestController {
 
     @PutMapping("/clients/{id}")
     public ResponseEntity<?> update(@RequestBody @Valid Client client, BindingResult result, @PathVariable(value = "id") Long id){
-
 
         if(result.hasErrors()) {
             throw new HandlerValidationException(HttpStatus.BAD_REQUEST, "Fields required.", result);
@@ -144,17 +142,22 @@ public class ClientRestController {
     public ResponseEntity<?> delete(@PathVariable(value = "id") Long id) {
         Map<String, Object> response = new HashMap<>();
 
-        Client clientRemove = null;
+        Client clientRemove;
 
         try {
             clientRemove = this.clientService.delete(id);
         } catch (DataAccessException e) {
             logger.error("Error: Client not removed. ".concat(e.getMessage()));
-            // TODO: Crear excepción personalizada para el método create en el controlador de Clientes.
-            response.put("ok", false);
-            response.put("client", clientRemove);
-            response.put("message", "Error: Client with ID: " + id + " it's nt removed!");
-            response.put("error", e.getMostSpecificCause().getMessage());
+
+            throw new HandlerDataAccessException(e, HttpStatus.INTERNAL_SERVER_ERROR, "The client was not updated, occurred an error.");
+
+        }
+
+        if(clientRemove == null) {
+            logger.error("Error: Client with ID: " + id + " it's nt found or already removed!");
+
+            throw new HandlerClientNotFound(new NullPointerException("Resource not found!"),HttpStatus.BAD_REQUEST, "Client not found!");
+
         }
 
         response.put("ok", true);
