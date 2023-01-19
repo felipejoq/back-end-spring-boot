@@ -1,10 +1,7 @@
 package com.uncodigo.clientes.app.models.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
@@ -37,11 +34,12 @@ public class Client implements Serializable {
     @Column(name = "create_at", nullable = false)
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotNull(message = "Date is not null")
     private Date createAt;
 
     @PrePersist
     public void prePersist() {
-        this.createAt = new Date();
+        // this.createAt = new Date();
     }
 
     public Client() {}

@@ -44,7 +44,7 @@ public class ClientRestController {
     @ResponseStatus(HttpStatus.OK)
     public Page<Client> showAllPaginate(@PathVariable Integer page){
         // Pageable pageable = PageRequest.of(page, 10);
-        return clientService.findAll(PageRequest.of(page, 5));
+        return clientService.findAll(PageRequest.of(page, 10));
     }
 
     @GetMapping(value = "/clients/{id}")
