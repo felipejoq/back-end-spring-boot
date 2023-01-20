@@ -156,22 +156,17 @@ public class ClientRestController {
     public ResponseEntity<?> delete(@PathVariable(value = "id") Long id) {
         Map<String, Object> response = new HashMap<>();
 
-        Client clientRemove;
+        Client clientRemove = null;
 
         try {
             clientRemove = this.clientService.delete(id);
+            if(clientRemove.getImgUrl() != null)
+                this.uploadPhotoService.deleteImgFromCloudinary(clientRemove);
+
         } catch (DataAccessException e) {
             logger.error("Error: Client not removed. ".concat(e.getMessage()));
 
             throw new HandlerDataAccessException(e, HttpStatus.INTERNAL_SERVER_ERROR, "The client was not updated, occurred an error.");
-
-        }
-
-        if (clientRemove == null) {
-            logger.error("Error: Client with ID: " + id + " it's nt found or already removed!");
-
-            throw new HandlerClientNotFound(new NullPointerException("Resource not found!"), HttpStatus.BAD_REQUEST, "Client not found!");
-
         }
 
         response.put("ok", true);

@@ -5,4 +5,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface IUploadPhotoService {
     String upload(MultipartFile file, Client client) throws Exception;
+
+    Boolean deleteImgFromCloudinary(Client client);
 }
