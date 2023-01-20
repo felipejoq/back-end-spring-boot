@@ -24,7 +24,7 @@ INSERT INTO clients (name, lastname, email, create_at) VALUES ('Karol', 'López'
 INSERT INTO clients (name, lastname, email, create_at) VALUES ('Romina', 'Brito', 'romina.br@test.test', NOW());
 INSERT INTO clients (name, lastname, email, create_at) VALUES ('Miriam', 'Higuera', 'miriam.higuera@test.test', NOW());
 INSERT INTO clients (name, lastname, email, create_at) VALUES ('Alfred', 'Sandoval', 'alfred.sandoval@test.test', NOW());
-INSERT INTO clients (name, lastname, email, create_at) VALUES ('Rita', 'Rubilar', 'rita.rubilar@test.test', NOW());
+INSERT INTO clients (name, lastname, email, create_at) VALUES ('Rita', 'Rubilar', 'rita.rubilar1@test.test', NOW());
 INSERT INTO clients (name, lastname, email, create_at) VALUES ('Sandra', 'Ormeño', 'sandra.orm@test.test', NOW());
 INSERT INTO clients (name, lastname, email, create_at) VALUES ('Alberto', 'Polanco', 'alberto.p@test.test', NOW());
 INSERT INTO clients (name, lastname, email, create_at) VALUES ('Jimena', 'Urrutia', 'jimena.urr@test.test', NOW());

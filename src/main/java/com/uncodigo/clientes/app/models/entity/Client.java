@@ -2,6 +2,7 @@ package com.uncodigo.clientes.app.models.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
@@ -30,6 +31,9 @@ public class Client implements Serializable {
     @Email(message = "Check Email field, this should have the email format.")
     @Size(max = 255)
     private String email;
+
+    @Column(name = "img_url", nullable = true)
+    private String imgUrl;
 
     @Column(name = "create_at", nullable = false)
     @Temporal(TemporalType.DATE)
@@ -74,6 +78,14 @@ public class Client implements Serializable {
 
     public Date getCreateAt() {
         return createAt;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public void setCreateAt(Date createAt) {
