@@ -130,6 +130,11 @@ public class ClientRestController {
         clientAfterUpdate.setName(client.getName());
         clientAfterUpdate.setLastName(client.getLastName());
         clientAfterUpdate.setEmail(client.getEmail());
+
+        if(client.getCountry() != null){
+            clientAfterUpdate.setCountry(client.getCountry());
+        }
+
         if (client.getCreateAt() == null) {
             clientAfterUpdate.setCreateAt(clientAfterUpdate.getCreateAt());
         } else {

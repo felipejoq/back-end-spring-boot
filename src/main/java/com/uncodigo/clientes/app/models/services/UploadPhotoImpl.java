@@ -19,7 +19,7 @@ public class UploadPhotoImpl implements IUploadPhotoService {
 
     // Set Cloudinary credentials
     Dotenv dotenv = Dotenv.load();
-    private Cloudinary cloudinary = new Cloudinary(dotenv.get("CLOUDINARY_URL"));
+    private final Cloudinary cloudinary = new Cloudinary(dotenv.get("CLOUDINARY_URL"));
 
     @Override
     public String upload(MultipartFile file, Client client) throws Exception {

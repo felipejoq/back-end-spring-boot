@@ -32,8 +32,11 @@ public class Client implements Serializable {
     @Size(max = 255)
     private String email;
 
-    @Column(name = "img_url", nullable = true)
+    @Column(name = "img_url")
     private String imgUrl;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    private Country country;
 
     @Column(name = "create_at", nullable = false)
     @Temporal(TemporalType.DATE)
@@ -76,8 +79,12 @@ public class Client implements Serializable {
         this.email = email;
     }
 
-    public Date getCreateAt() {
-        return createAt;
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
     }
 
     public String getImgUrl() {
@@ -87,6 +94,11 @@ public class Client implements Serializable {
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
     }
+
+    public Date getCreateAt() {
+        return createAt;
+    }
+
 
     public void setCreateAt(Date createAt) {
         this.createAt = createAt;
