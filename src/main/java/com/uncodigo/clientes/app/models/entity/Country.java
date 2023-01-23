@@ -1,14 +1,16 @@
 package com.uncodigo.clientes.app.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "countries")
 public class Country implements Serializable {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
