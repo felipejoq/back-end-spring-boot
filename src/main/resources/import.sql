@@ -279,3 +279,21 @@ INSERT INTO clients (name, lastname, email, img_url, country_id, create_at) VALU
 INSERT INTO clients (name, lastname, email, img_url, country_id, create_at) VALUES ('Wilson', 'Dorán', 'wilson.doran@test.test', NULL, 36, NOW());
 INSERT INTO clients (name, lastname, email, img_url, country_id, create_at) VALUES ('Humberto', 'Jara', 'humberto.jara@test.test', NULL, 37, NOW());
 INSERT INTO clients (name, lastname, email, img_url, country_id, create_at) VALUES ('Alice', 'Bravo', 'alice.bravo@test.test', NULL, 38, NOW());
+
+# Insert User for testing
+INSERT INTO users (username, password, enabled) VALUES ('admin', '', 1);
+INSERT INTO users (username, password, enabled) VALUES ('seller', '', 1);
+INSERT INTO users (username, password, enabled) VALUES ('user', '', 1);
+
+# Insert roles for testing
+INSERT INTO roles (nombre) VALUES ('ROLE_ADMIN');
+INSERT INTO roles (nombre) VALUES ('ROLE_SELLER');
+INSERT INTO roles (nombre) VALUES ('ROLE_USER');
+
+# Insert for associate from roles to users
+INSERT INTO user_roles (user_id, role_id) VALUES (1, 1);
+INSERT INTO user_roles (user_id, role_id) VALUES (1, 2);
+INSERT INTO user_roles (user_id, role_id) VALUES (1, 3);
+INSERT INTO user_roles (user_id, role_id) VALUES (2, 2);
+INSERT INTO user_roles (user_id, role_id) VALUES (2, 3);
+INSERT INTO user_roles (user_id, role_id) VALUES (3, 3);
