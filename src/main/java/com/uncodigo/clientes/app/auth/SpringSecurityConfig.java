@@ -1,5 +1,6 @@
 package com.uncodigo.clientes.app.auth;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -15,11 +16,8 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SpringSecurityConfig extends WebSecurityConfiguration {
 
-    private final UserDetailsService usuarioService;
-
-    public SpringSecurityConfig(UserDetailsService usuarioService) {
-        this.usuarioService = usuarioService;
-    }
+    @Autowired
+    private UserDetailsService usuarioService;
 
     @Bean
     public static BCryptPasswordEncoder passwordEncoder() {
@@ -28,7 +26,7 @@ public class SpringSecurityConfig extends WebSecurityConfiguration {
 
     @Bean
     protected AuthenticationManager authenticationManager(AuthenticationManagerBuilder auth) throws Exception {
-        return auth.userDetailsService(this.usuarioService).passwordEncoder(passwordEncoder()).and().build();
+        return auth.userDetailsService(usuarioService).passwordEncoder(passwordEncoder()).and().build();
     }
 
     @Bean
