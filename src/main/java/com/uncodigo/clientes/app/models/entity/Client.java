@@ -1,10 +1,12 @@
 package com.uncodigo.clientes.app.models.entity;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 

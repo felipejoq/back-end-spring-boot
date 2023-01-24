@@ -6,7 +6,6 @@ import com.uncodigo.clientes.app.handler.exceptions.HandlerValidationException;
 import com.uncodigo.clientes.app.models.entity.Client;
 import com.uncodigo.clientes.app.models.services.IClientServices;
 import com.uncodigo.clientes.app.models.services.IUploadPhotoService;
-import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
@@ -18,6 +17,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -68,7 +68,7 @@ public class ClientRestController {
         if (client == null) {
             logger.error("Error: ".concat("Client not found!"));
 
-            throw new HandlerClientNotFound(new NullPointerException("Resource not found"), HttpStatus.NOT_FOUND, "Client not found!");
+            throw new HandlerClientNotFound(new NullPointerException("Resource not found"), HttpStatus.BAD_REQUEST, "Client not found!");
         }
 
         return new ResponseEntity<>(client, HttpStatus.OK);

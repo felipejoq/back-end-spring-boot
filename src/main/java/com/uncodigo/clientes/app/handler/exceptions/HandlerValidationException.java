@@ -1,10 +1,8 @@
 package com.uncodigo.clientes.app.handler.exceptions;
 
 import org.springframework.context.support.DefaultMessageSourceResolvable;
-import org.springframework.http.HttpStatusCode;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +11,10 @@ import java.util.stream.Collectors;
 public class HandlerValidationException extends RuntimeException {
 
     private String message;
-    private HttpStatusCode status;
+    private HttpStatus status;
     private BindingResult result;
 
-    public HandlerValidationException(HttpStatusCode status, String message, BindingResult erros) {
+    public HandlerValidationException(HttpStatus status, String message, BindingResult erros) {
         this.status = status;
         this.message = message;
         this.result = erros;
@@ -31,11 +29,11 @@ public class HandlerValidationException extends RuntimeException {
         this.message = message;
     }
 
-    public HttpStatusCode getStatus() {
+    public HttpStatus getStatus() {
         return status;
     }
 
-    public void setStatus(HttpStatusCode status) {
+    public void setStatus(HttpStatus status) {
         this.status = status;
     }
 

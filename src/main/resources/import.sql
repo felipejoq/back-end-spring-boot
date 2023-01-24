@@ -286,14 +286,14 @@ INSERT INTO users (username, password, enabled) VALUES ('seller', '', 1);
 INSERT INTO users (username, password, enabled) VALUES ('user', '', 1);
 
 # Insert roles for testing
-INSERT INTO roles (nombre) VALUES ('ROLE_ADMIN');
-INSERT INTO roles (nombre) VALUES ('ROLE_SELLER');
-INSERT INTO roles (nombre) VALUES ('ROLE_USER');
+INSERT INTO roles (name) VALUES ('ROLE_ADMIN');
+INSERT INTO roles (name) VALUES ('ROLE_SELLER');
+INSERT INTO roles (name) VALUES ('ROLE_USER');
 
 # Insert for associate from roles to users
-INSERT INTO user_roles (user_id, role_id) VALUES (1, 1);
-INSERT INTO user_roles (user_id, role_id) VALUES (1, 2);
-INSERT INTO user_roles (user_id, role_id) VALUES (1, 3);
-INSERT INTO user_roles (user_id, role_id) VALUES (2, 2);
-INSERT INTO user_roles (user_id, role_id) VALUES (2, 3);
-INSERT INTO user_roles (user_id, role_id) VALUES (3, 3);
+INSERT INTO users_roles (user_id, roles_id) VALUES (1, 1);
+INSERT INTO users_roles (user_id, roles_id) VALUES (1, 2);
+INSERT INTO users_roles (user_id, roles_id) VALUES (1, 3);
+INSERT INTO users_roles (user_id, roles_id) VALUES (2, 2);
+INSERT INTO users_roles (user_id, roles_id) VALUES (2, 3);
+INSERT INTO users_roles (user_id, roles_id) VALUES (3, 3);
