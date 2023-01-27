@@ -281,9 +281,9 @@ INSERT INTO clients (name, lastname, email, img_url, country_id, create_at) VALU
 INSERT INTO clients (name, lastname, email, img_url, country_id, create_at) VALUES ('Alice', 'Bravo', 'alice.bravo@test.test', NULL, 38, NOW());
 
 # Insert User for testing
-INSERT INTO users (username, password, enabled) VALUES ('admin', '$2a$10$29395DK/LwVlVQWni91uXOJlM2mt8vUzoP0PTFv5HUm62YiebfuDq', 1);
-INSERT INTO users (username, password, enabled) VALUES ('seller', '$2a$10$29395DK/LwVlVQWni91uXOJlM2mt8vUzoP0PTFv5HUm62YiebfuDq', 1);
-INSERT INTO users (username, password, enabled) VALUES ('user', '$2a$10$29395DK/LwVlVQWni91uXOJlM2mt8vUzoP0PTFv5HUm62YiebfuDq', 1);
+INSERT INTO users (username, password, enabled, email) VALUES ('admin', '$2a$10$29395DK/LwVlVQWni91uXOJlM2mt8vUzoP0PTFv5HUm62YiebfuDq', 1, 'admin@test.test');
+INSERT INTO users (username, password, enabled, email) VALUES ('seller', '$2a$10$29395DK/LwVlVQWni91uXOJlM2mt8vUzoP0PTFv5HUm62YiebfuDq', 1, 'seller@test.test');
+INSERT INTO users (username, password, enabled, email) VALUES ('user', '$2a$10$29395DK/LwVlVQWni91uXOJlM2mt8vUzoP0PTFv5HUm62YiebfuDq', 1, 'user@test.test');
 
 # Insert roles for testing
 INSERT INTO roles (name) VALUES ('ROLE_ADMIN');

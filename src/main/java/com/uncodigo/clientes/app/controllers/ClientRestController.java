@@ -13,10 +13,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.security.PermitAll;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
@@ -38,12 +40,14 @@ public class ClientRestController {
         this.uploadPhotoService = uploadPhotoService;
     }
 
+    @PermitAll
     @GetMapping(value = "/clients")
     @ResponseStatus(HttpStatus.OK)
     public List<Client> showAll() {
         return clientService.findAll();
     }
 
+    @PermitAll
     @GetMapping(value = "/clients/page/{page}")
     @ResponseStatus(HttpStatus.OK)
     public Page<Client> showAllPaginate(@PathVariable Integer page) {
@@ -51,6 +55,7 @@ public class ClientRestController {
         return clientService.findAll(PageRequest.of(page, 10));
     }
 
+    @Secured({"ROLE_USER", "ROLE_SELLER", "ROLE_ADMIN"})
     @GetMapping(value = "/clients/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> show(@PathVariable(value = "id") Long id) {
@@ -74,6 +79,7 @@ public class ClientRestController {
         return new ResponseEntity<>(client, HttpStatus.OK);
     }
 
+    @Secured({"ROLE_ADMIN", "ROLE_SELLER"})
     @PostMapping("/clients")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> create(@RequestBody @Valid Client client, BindingResult result) {
@@ -100,6 +106,7 @@ public class ClientRestController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
+    @Secured("ROLE_ADMIN")
     @PutMapping("/clients/{id}")
     public ResponseEntity<?> update(@RequestBody @Valid Client client, BindingResult result, @PathVariable(value = "id") Long id) {
 
@@ -157,6 +164,7 @@ public class ClientRestController {
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 
+    @Secured("ROLE_ADMIN")
     @DeleteMapping("/clients/{id}")
     public ResponseEntity<?> delete(@PathVariable(value = "id") Long id) {
         Map<String, Object> response = new HashMap<>();
@@ -181,6 +189,7 @@ public class ClientRestController {
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/clients/photo/upload")
     public ResponseEntity<?> uploadPhoto(@RequestParam("photo") MultipartFile photo, @RequestParam("id") Long id) {
         logger.info(photo.toString());

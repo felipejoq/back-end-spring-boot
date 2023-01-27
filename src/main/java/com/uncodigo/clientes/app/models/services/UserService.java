@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserService implements UserDetailsService, IUsuarioService {
 
     private final IUserDao userDao;
 
@@ -50,5 +50,11 @@ public class UserService implements UserDetailsService {
                 true,
                 true,
                 authorities);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public User findByUsername(String username) {
+        return userDao.findByUsername(username);
     }
 }

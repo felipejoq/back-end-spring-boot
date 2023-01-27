@@ -4,6 +4,7 @@ import com.uncodigo.clientes.app.models.entity.Country;
 import com.uncodigo.clientes.app.models.services.ICountryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -18,6 +19,7 @@ public class CountryRestController {
 
     public CountryRestController(ICountryService countryService) { this.countryService = countryService; }
 
+    @Secured({"ROLE_ADMIN", "ROLE_SELLER"})
     @GetMapping("/countries/{term}")
     public ResponseEntity<?> searchCountryByName(@PathVariable String term) {
 
