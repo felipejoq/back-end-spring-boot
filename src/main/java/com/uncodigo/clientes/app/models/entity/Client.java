@@ -54,7 +54,7 @@ public class Client implements Serializable {
     public Client() {
         this.invoices = new ArrayList<>();
     }
-    
+
     public Long getId() {
         return id;
     }

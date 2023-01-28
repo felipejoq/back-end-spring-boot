@@ -13,6 +13,18 @@ public class ItemInvoice implements Serializable {
 
     private Integer cuanty;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
     public Long getId() {
         return id;
     }
@@ -29,7 +41,7 @@ public class ItemInvoice implements Serializable {
         this.cuanty = cuanty;
     }
 
-    public Double calculateToImport(){
-        return this.cuanty.doubleValue();
+    public Double getToAmount(){
+        return this.cuanty.doubleValue() * this.product.getPrice();
     }
 }

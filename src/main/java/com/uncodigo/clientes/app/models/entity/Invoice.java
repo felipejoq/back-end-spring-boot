@@ -82,4 +82,12 @@ public class Invoice implements Serializable {
     public void setItems(List<ItemInvoice> items) {
         this.items = items;
     }
+
+    public Double getTotalAmount() {
+        Double totalAmount = 0.0;
+        for (ItemInvoice item : this.items) {
+            totalAmount += item.getToAmount();
+        }
+        return totalAmount;
+    }
 }
