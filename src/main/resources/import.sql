@@ -280,7 +280,7 @@ INSERT INTO clients (name, lastname, email, img_url, country_id, create_at) VALU
 INSERT INTO clients (name, lastname, email, img_url, country_id, create_at) VALUES ('Humberto', 'Jara', 'humberto.jara@test.test', NULL, 37, NOW());
 INSERT INTO clients (name, lastname, email, img_url, country_id, create_at) VALUES ('Alice', 'Bravo', 'alice.bravo@test.test', NULL, 38, NOW());
 
-# Insert User for testing
+# Insert User for testing Passwords user's: 123123
 INSERT INTO users (username, password, enabled, email) VALUES ('admin', '$2a$10$29395DK/LwVlVQWni91uXOJlM2mt8vUzoP0PTFv5HUm62YiebfuDq', 1, 'admin@test.test');
 INSERT INTO users (username, password, enabled, email) VALUES ('seller', '$2a$10$29395DK/LwVlVQWni91uXOJlM2mt8vUzoP0PTFv5HUm62YiebfuDq', 1, 'seller@test.test');
 INSERT INTO users (username, password, enabled, email) VALUES ('user', '$2a$10$29395DK/LwVlVQWni91uXOJlM2mt8vUzoP0PTFv5HUm62YiebfuDq', 1, 'user@test.test');
@@ -310,3 +310,16 @@ INSERT INTO products (name, price, create_at) VALUES ('Apple Watch S4 41mm', 457
 INSERT INTO products (name, price, create_at) VALUES ('Cargador genérico iPhone', 21000, NOW());
 INSERT INTO products (name, price, create_at) VALUES ('Soporte TV Abatible TV/Monitor 60"', 11000, NOW());
 INSERT INTO products (name, price, create_at) VALUES ('Robot aspiradora Xiaomi', 290500, NOW());
+
+# Insert invoices for testing
+INSERT INTO invoices (description, observation, client_id, create_at) VALUES ('Compras para la oficina', 'Precio de oferta para el escritorio', 1, NOW());
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 1, 5);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 1, 4);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 1, 3);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 1, 9);
+
+INSERT INTO invoices (description, observation, client_id, create_at) VALUES ('Nuevo notebook y celular', 'iPhone y notebook para estudios, aspiradora para la casa', 2, NOW());
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 1, 3);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 1, 4);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 1, 9);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 1, 11);
