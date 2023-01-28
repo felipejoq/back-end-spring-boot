@@ -8,7 +8,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="clients")
@@ -40,18 +42,23 @@ public class Client implements Serializable {
     @OneToOne(fetch = FetchType.EAGER)
     private Country country;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
+    private List<Invoice> invoices;
+
     @Column(name = "create_at", nullable = false)
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull(message = "Date is not null")
     private Date createAt;
 
+    public Client() {
+        this.invoices = new ArrayList<>();
+    }
+
     @PrePersist
     public void prePersist() {
         // this.createAt = new Date();
     }
-
-    public Client() {}
 
     public Long getId() {
         return id;
@@ -95,6 +102,14 @@ public class Client implements Serializable {
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
+    }
+
+    public List<Invoice> getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(List<Invoice> invoices) {
+        this.invoices = invoices;
     }
 
     public Date getCreateAt() {
