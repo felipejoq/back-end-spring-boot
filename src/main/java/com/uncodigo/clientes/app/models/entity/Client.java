@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name="clients")
+@Table(name = "clients")
 public class Client implements Serializable {
 
     @Id
@@ -54,12 +54,7 @@ public class Client implements Serializable {
     public Client() {
         this.invoices = new ArrayList<>();
     }
-
-    @PrePersist
-    public void prePersist() {
-        // this.createAt = new Date();
-    }
-
+    
     public Long getId() {
         return id;
     }

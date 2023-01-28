@@ -2,7 +2,9 @@ package com.uncodigo.clientes.app.models.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "invoices")
@@ -23,6 +25,14 @@ public class Invoice implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
     private Client client;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "invoice_id")
+    private List<ItemInvoice> items;
+
+    public Invoice() {
+        this.items = new ArrayList<>();
+    }
 
     @PrePersist
     private void prePersist() {
@@ -63,5 +73,13 @@ public class Invoice implements Serializable {
 
     public void setCreateAt(Date createAt) {
         this.createAt = createAt;
+    }
+
+    public List<ItemInvoice> getItems() {
+        return items;
+    }
+
+    public void setItems(List<ItemInvoice> items) {
+        this.items = items;
     }
 }
