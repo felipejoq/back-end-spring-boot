@@ -297,3 +297,16 @@ INSERT INTO users_roles (user_id, roles_id) VALUES (1, 3);
 INSERT INTO users_roles (user_id, roles_id) VALUES (2, 2);
 INSERT INTO users_roles (user_id, roles_id) VALUES (2, 3);
 INSERT INTO users_roles (user_id, roles_id) VALUES (3, 3);
+
+# Insert products for testing
+INSERT INTO products (name, price, create_at) VALUES ('Panasonic Pantalla LCD', 189000, NOW());
+INSERT INTO products (name, price, create_at) VALUES ('Linterna de explorador', 6990, NOW());
+INSERT INTO products (name, price, create_at) VALUES ('Celular iPhone Pro 14', 1189000, NOW());
+INSERT INTO products (name, price, create_at) VALUES ('Notebook Asus Gaming 16"', 789000, NOW());
+INSERT INTO products (name, price, create_at) VALUES ('Escritorio madera nativa oficina L', 350000, NOW());
+INSERT INTO products (name, price, create_at) VALUES ('Bicicleta aro 26 Trek', 256000, NOW());
+INSERT INTO products (name, price, create_at) VALUES ('Camara Reflex Sony Mod. "GX004"', 189000, NOW());
+INSERT INTO products (name, price, create_at) VALUES ('Apple Watch S4 41mm', 457000, NOW());
+INSERT INTO products (name, price, create_at) VALUES ('Cargador genérico iPhone', 21000, NOW());
+INSERT INTO products (name, price, create_at) VALUES ('Soporte TV Abatible TV/Monitor 60"', 11000, NOW());
+INSERT INTO products (name, price, create_at) VALUES ('Robot aspiradora Xiaomi', 290500, NOW());
