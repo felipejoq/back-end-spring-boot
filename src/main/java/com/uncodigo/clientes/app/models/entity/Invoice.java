@@ -1,5 +1,7 @@
 package com.uncodigo.clientes.app.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,10 +24,12 @@ public class Invoice implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date createAt;
 
+    @JsonIgnoreProperties({"invoices", "hibernateLazyInitializer", "handler"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
     private Client client;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "invoice_id")
     private List<ItemInvoice> items;
@@ -83,10 +87,10 @@ public class Invoice implements Serializable {
         this.items = items;
     }
 
-    public Double getTotalAmount() {
+    public Double getTotalAmountDue() {
         Double totalAmount = 0.0;
         for (ItemInvoice item : this.items) {
-            totalAmount += item.getToAmount();
+            totalAmount += item.getTotalItem();
         }
         return totalAmount;
     }

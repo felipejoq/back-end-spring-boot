@@ -319,7 +319,10 @@ INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 1, 3);
 INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 1, 9);
 
 INSERT INTO invoices (description, observation, client_id, create_at) VALUES ('Nuevo notebook y celular', 'iPhone y notebook para estudios, aspiradora para la casa', 2, NOW());
-INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 1, 3);
-INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 1, 4);
-INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 1, 9);
-INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 1, 11);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 2, 3);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (5, 2, 4);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (2, 2, 9);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 2, 11);
+
+INSERT INTO invoices (description, observation, client_id, create_at) VALUES ('Bicicleta Navidad', null, 1, NOW());
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (3, 3, 6);

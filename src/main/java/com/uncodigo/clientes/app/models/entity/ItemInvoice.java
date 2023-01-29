@@ -1,5 +1,7 @@
 package com.uncodigo.clientes.app.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -13,6 +15,7 @@ public class ItemInvoice implements Serializable {
 
     private Integer cuanty;
 
+    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     private Product product;
@@ -41,7 +44,7 @@ public class ItemInvoice implements Serializable {
         this.cuanty = cuanty;
     }
 
-    public Double getToAmount(){
+    public Double getTotalItem(){
         return this.cuanty.doubleValue() * this.product.getPrice();
     }
 }

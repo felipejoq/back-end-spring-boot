@@ -1,5 +1,6 @@
 package com.uncodigo.clientes.app.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -42,6 +43,7 @@ public class Client implements Serializable {
     @OneToOne(fetch = FetchType.EAGER)
     private Country country;
 
+    @JsonIgnoreProperties({"client", "hibernateLazyInitializer", "handler"})
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
     private List<Invoice> invoices;
 
@@ -110,8 +112,7 @@ public class Client implements Serializable {
     public Date getCreateAt() {
         return createAt;
     }
-
-
+    
     public void setCreateAt(Date createAt) {
         this.createAt = createAt;
     }

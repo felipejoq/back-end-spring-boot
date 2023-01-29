@@ -55,7 +55,8 @@ public class ClientRestController {
         return clientService.findAll(PageRequest.of(page, 10));
     }
 
-    @Secured({"ROLE_USER", "ROLE_SELLER", "ROLE_ADMIN"})
+    // @Secured({"ROLE_USER", "ROLE_SELLER", "ROLE_ADMIN"})
+    // @PermitAll
     @GetMapping(value = "/clients/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> show(@PathVariable(value = "id") Long id) {
