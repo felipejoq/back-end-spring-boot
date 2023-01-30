@@ -1,7 +1,7 @@
 package com.uncodigo.clientes.app.controllers;
 
 import com.uncodigo.clientes.app.models.entity.Country;
-import com.uncodigo.clientes.app.models.services.ICountryService;
+import com.uncodigo.clientes.app.models.services.interfaces.ICountryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;

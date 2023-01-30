@@ -3,6 +3,7 @@ package com.uncodigo.clientes.app.models.services;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.uncodigo.clientes.app.models.entity.Client;
+import com.uncodigo.clientes.app.models.services.interfaces.IUploadPhotoService;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

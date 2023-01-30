@@ -324,5 +324,60 @@ INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (5, 2, 4);
 INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (2, 2, 9);
 INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 2, 11);
 
-INSERT INTO invoices (description, observation, client_id, create_at) VALUES ('Bicicleta Navidad', null, 1, NOW());
+INSERT INTO invoices (description, observation, client_id, create_at) VALUES ('Nuevo notebook y celular', 'iPhone y notebook para estudios, aspiradora para la casa', 2, NOW());
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 3, 3);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (5, 3, 4);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (2, 3, 9);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 3, 11);
+
+INSERT INTO invoices (description, observation, client_id, create_at) VALUES ('Nuevo notebook y celular', 'iPhone y notebook para estudios, aspiradora para la casa', 2, NOW());
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 4, 3);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (5, 4, 4);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (2, 4, 9);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 4, 11);
+
+INSERT INTO invoices (description, observation, client_id, create_at) VALUES ('Nuevo notebook y celular', 'iPhone y notebook para estudios, aspiradora para la casa', 2, NOW());
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 5, 3);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (5, 5, 4);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (2, 5, 9);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 5, 11);
+
+INSERT INTO invoices (description, observation, client_id, create_at) VALUES ('Nuevo notebook y celular', 'iPhone y notebook para estudios, aspiradora para la casa', 2, NOW());
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 6, 3);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (5, 6, 4);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (2, 6, 9);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 6, 11);
+
+INSERT INTO invoices (description, observation, client_id, create_at) VALUES ('Nuevo notebook y celular', 'iPhone y notebook para estudios, aspiradora para la casa', 2, NOW());
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 7, 3);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (5, 7, 4);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (2, 7, 9);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 7, 11);
+
+INSERT INTO invoices (description, observation, client_id, create_at) VALUES ('Nuevo notebook y celular', 'iPhone y notebook para estudios, aspiradora para la casa', 2, NOW());
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 8, 3);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (5, 8, 4);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (2, 8, 9);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 8, 11);
+
+INSERT INTO invoices (description, observation, client_id, create_at) VALUES ('Nuevo notebook y celular', 'iPhone y notebook para estudios, aspiradora para la casa', 2, NOW());
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 9, 3);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (5, 9, 4);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (2, 9, 9);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 9, 11);
+
+INSERT INTO invoices (description, observation, client_id, create_at) VALUES ('Nuevo notebook y celular', 'iPhone y notebook para estudios, aspiradora para la casa', 2, NOW());
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 10, 3);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (5, 10, 4);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (2, 10, 9);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 10, 11);
+
+INSERT INTO invoices (description, observation, client_id, create_at) VALUES ('Bicicleta Navidad', 'DESCRIPTION', 1, NOW());
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (3, 11, 6);
+
+INSERT INTO invoices (description, observation, client_id, create_at) VALUES ('Bicicleta Navidad', 'DESCRIPTION', 1, NOW());
 INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (3, 3, 6);
+
+INSERT INTO invoices (description, observation, client_id, create_at) VALUES ('Bicicleta Navidad', 'Descripción', 1, NOW());
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 4, 6);
+INSERT INTO invoice_items (cuanty, invoice_id, product_id) VALUES (1, 4, 2);

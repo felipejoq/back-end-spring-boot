@@ -1,7 +1,7 @@
 package com.uncodigo.clientes.app.auth;
 
 import com.uncodigo.clientes.app.models.entity.User;
-import com.uncodigo.clientes.app.models.services.IUsuarioService;
+import com.uncodigo.clientes.app.models.services.interfaces.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;

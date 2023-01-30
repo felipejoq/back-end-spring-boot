@@ -2,16 +2,16 @@ package com.uncodigo.clientes.app.models.services;
 
 import com.uncodigo.clientes.app.models.dao.IClientDao;
 import com.uncodigo.clientes.app.models.entity.Client;
+import com.uncodigo.clientes.app.models.services.interfaces.IClientServices;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service("clientService")
-public class ClientServiceImpl implements IClientServices{
+public class ClientServiceImpl implements IClientServices {
 
     private IClientDao clientDao;
 

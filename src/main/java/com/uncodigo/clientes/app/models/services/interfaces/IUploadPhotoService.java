@@ -1,4 +1,4 @@
-package com.uncodigo.clientes.app.models.services;
+package com.uncodigo.clientes.app.models.services.interfaces;
 
 import com.uncodigo.clientes.app.models.entity.Client;
 import org.springframework.web.multipart.MultipartFile;

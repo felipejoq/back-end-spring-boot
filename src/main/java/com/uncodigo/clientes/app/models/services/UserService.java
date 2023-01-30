@@ -2,6 +2,7 @@ package com.uncodigo.clientes.app.models.services;
 
 import com.uncodigo.clientes.app.models.dao.IUserDao;
 import com.uncodigo.clientes.app.models.entity.User;
+import com.uncodigo.clientes.app.models.services.interfaces.IUsuarioService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
